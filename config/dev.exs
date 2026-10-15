@@ -2,7 +2,7 @@ import Config
 
 # Configure your database
 config :live_poll, LivePoll.Repo,
-  username: "postgres",
+  username: "mariano",
   password: "postgres",
   hostname: "localhost",
   database: "live_poll_dev",
