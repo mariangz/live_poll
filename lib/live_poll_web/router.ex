@@ -20,6 +20,8 @@ defmodule LivePollWeb.Router do
     get "/", PageController, :home
     get "/hello", HelloController, :index
     get "/hello/:messenger", HelloController, :show
+
+    get "/polls", PollController, :index
   end
 
   # Other scopes may use custom stacks.

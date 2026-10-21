@@ -1,0 +1,7 @@
+<h1>Available Polls</h1>
+
+<ul>
+  <%= for poll <- @polls do %>
+    <li>{poll.question}</li>
+  <% end %>
+</ul>
