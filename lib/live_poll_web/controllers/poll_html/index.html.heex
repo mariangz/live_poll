@@ -1,7 +1,11 @@
 <h1>Available Polls</h1>
 
-<ul>
-  <%= for poll <- @polls do %>
-    <li>{poll.question}</li>
-  <% end %>
-</ul>
+<%= if Enum.empty?(@polls) do %>
+  <p>No polls available.</p>
+<% else %>
+  <ul class="list-disc pl-6">
+    <%= for poll <- @polls do %>
+      <li>{poll.question}</li>
+    <% end %>
+  </ul>
+<% end %>
