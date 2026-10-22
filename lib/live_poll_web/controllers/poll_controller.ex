@@ -8,4 +8,14 @@ defmodule LivePollWeb.PollController do
     ]
     render(conn, :index, polls: polls)
   end
+
+  def show(conn, %{"id" => id}) do
+    polls = [
+      %{id: 1, question: "Favorite language?"},
+      %{id: 2, question: "Favorite framework?"}
+    ]
+    int_id = String.to_integer(id)
+    poll = Enum.find(polls, fn poll -> poll.id === int_id end)
+    render(conn, :show, poll: poll)
+  end
 end
