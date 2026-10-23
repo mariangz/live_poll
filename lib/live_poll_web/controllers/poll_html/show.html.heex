@@ -1,1 +1,7 @@
-<h1>Favorite {@poll.question}</h1>
+<h1>{@poll.question}</h1>
+<p>Available options:</p>
+<ul class="list-disc pl-6">
+  <%= for option <- @poll.options do %>
+  <li>{option}</li>
+  <% end %>
+</ul>
