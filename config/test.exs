@@ -6,7 +6,7 @@ import Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :live_poll, LivePoll.Repo,
-  username: "postgres",
+  username: "mariano",
   password: "postgres",
   hostname: "localhost",
   database: "live_poll_test#{System.get_env("MIX_TEST_PARTITION")}",
