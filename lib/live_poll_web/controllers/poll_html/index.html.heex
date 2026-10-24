@@ -5,7 +5,11 @@
 <% else %>
   <ul class="list-disc pl-6">
     <%= for poll <- @polls do %>
-      <li>{poll.question}</li>
+      <li>
+        <.link href={~p"/polls/#{poll.id}"}>
+          {poll.question}
+        </.link>
+      </li>
     <% end %>
   </ul>
 <% end %>

@@ -11,7 +11,8 @@ defmodule LivePollWeb.PollController do
       %{
         id: 2,
         question: "Favorite framework?",
-        options: ["Phoenix", "Svelte", "Django"]}
+        options: ["Phoenix", "Svelte", "Django"]
+      }
     ]
   end
 
@@ -21,19 +22,22 @@ defmodule LivePollWeb.PollController do
   end
 
   def show(conn, %{"id" => id}) do
-  polls = sample_polls()
+    polls = sample_polls()
 
-  case Integer.parse(id) do
-    {int_id, ""} ->
-      poll = Enum.find(polls, fn poll -> poll.id === int_id end)
-      case poll do
-        nil ->
-          send_resp(conn, 404, "Poll not found")
-        found_poll ->
-          render(conn, :show, poll: found_poll)
-      end
-    _ ->
-      send_resp(conn, 404, "Poll not found")
-  end
+    case Integer.parse(id) do
+      {int_id, ""} ->
+        poll = Enum.find(polls, fn poll -> poll.id === int_id end)
+
+        case poll do
+          nil ->
+            send_resp(conn, 404, "Poll not found")
+
+          found_poll ->
+            render(conn, :show, poll: found_poll)
+        end
+
+      _ ->
+        send_resp(conn, 404, "Poll not found")
+    end
   end
 end

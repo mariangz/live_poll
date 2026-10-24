@@ -2,6 +2,10 @@
 <p>Available options:</p>
 <ul class="list-disc pl-6">
   <%= for option <- @poll.options do %>
-  <li>{option}</li>
+    <li>{option}</li>
   <% end %>
 </ul>
+
+<.link href={~p"/polls"}>
+  Back
+</.link>
