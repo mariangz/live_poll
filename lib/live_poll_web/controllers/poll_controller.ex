@@ -1,5 +1,6 @@
 defmodule LivePollWeb.PollController do
   use LivePollWeb, :controller
+  alias LivePoll.Polls
 
   defp sample_polls do
     [
@@ -17,7 +18,7 @@ defmodule LivePollWeb.PollController do
   end
 
   def index(conn, _params) do
-    polls = sample_polls()
+    polls = Polls.list_polls()
     render(conn, :index, polls: polls)
   end
 
