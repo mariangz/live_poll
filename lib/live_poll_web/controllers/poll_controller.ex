@@ -2,21 +2,6 @@ defmodule LivePollWeb.PollController do
   use LivePollWeb, :controller
   alias LivePoll.Polls
 
-  defp sample_polls do
-    [
-      %{
-        id: 1,
-        question: "Favorite language?",
-        options: ["Elixir", "JavaScript", "Python"]
-      },
-      %{
-        id: 2,
-        question: "Favorite framework?",
-        options: ["Phoenix", "Svelte", "Django"]
-      }
-    ]
-  end
-
   def index(conn, _params) do
     polls = Polls.list_polls()
     render(conn, :index, polls: polls)
