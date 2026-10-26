@@ -8,7 +8,6 @@ defmodule LivePollWeb.PollController do
   end
 
   def show(conn, %{"id" => id}) do
-
     case Integer.parse(id) do
       {int_id, ""} ->
         poll = Polls.get_poll(int_id)
