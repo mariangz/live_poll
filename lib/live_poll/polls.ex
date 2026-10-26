@@ -5,4 +5,8 @@ defmodule LivePoll.Polls do
   def list_polls do
     Repo.all(Poll)
   end
+
+  def get_poll(id) do
+    Repo.get(Poll, id)
+  end
 end

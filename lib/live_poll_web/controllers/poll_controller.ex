@@ -23,11 +23,10 @@ defmodule LivePollWeb.PollController do
   end
 
   def show(conn, %{"id" => id}) do
-    polls = sample_polls()
 
     case Integer.parse(id) do
       {int_id, ""} ->
-        poll = Enum.find(polls, fn poll -> poll.id === int_id end)
+        poll = Polls.get_poll(int_id)
 
         case poll do
           nil ->
